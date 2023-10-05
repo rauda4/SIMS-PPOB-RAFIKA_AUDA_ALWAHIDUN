@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Headers from '../Headers/Headers';
+import logo from '../../assets/WebsiteAssets/Logo.png';
 // import { useNavigate } from 'react-router-dom';
 
 export default function Navbar() {
@@ -9,20 +11,26 @@ export default function Navbar() {
     <div>
       <nav
         className={
-          'absolute z-50 w-full flex items-center justify-between px-2 py-3 '
+          'absolute z-50 w-full flex items-center justify-between py-3 border-b-2'
         }>
-        <div className='container px-4 mx-auto flex flex-wrap items-center justify-between'>
-          <div className='w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-end'>
+        <div className='container mx-auto flex flex-wrap items-center justify-between'>
+          <div className='w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-end px-10'>
             <a
-              className='text-black text-lg font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase'
+              className='text-black text-lg font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase flex gap-2'
               href='/'>
+              <img
+                src={logo}
+                style={{ height: 20, width: 20 }}
+                alt='logo'
+                className='mt-1'
+              />
               SIMS PPOB
             </a>
             <button
               className='cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none'
               type='button'
               onClick={() => setNavbarOpen(!navbarOpen)}>
-              <i className='text-white'>=</i>
+              <i className='text-black'>=</i>
             </button>
           </div>
           <div
@@ -50,13 +58,14 @@ export default function Navbar() {
                 <a
                   className='lg:text-black lg:hover:text-red-500 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs capitalize font-bold'
                   href='/profile'>
-                  profile
+                  Akun
                 </a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
+      <Headers />
     </div>
   );
 }
