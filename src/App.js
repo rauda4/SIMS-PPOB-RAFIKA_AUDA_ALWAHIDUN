@@ -1,12 +1,19 @@
-import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import AuthRoutes from './routes/AuthRoutes';
+import LandingPageRoutes from './routes/LandingPageRoutes';
 
 function App() {
   return (
-    <div>
-      <h1 class='text-3xl text-white font-bold underline bg-black'>
-        Hello world!
-      </h1>
-    </div>
+    <Routes>
+      <Route
+        path='/*'
+        element={<LandingPageRoutes />}
+      />
+      <Route
+        path='/auth/*'
+        element={<AuthRoutes />}
+      />
+    </Routes>
   );
 }
 
