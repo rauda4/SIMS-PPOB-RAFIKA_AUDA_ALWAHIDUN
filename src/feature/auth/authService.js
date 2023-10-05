@@ -16,7 +16,6 @@ const login = async (userData) => {
     'https://take-home-test-api.nutech-integrasi.app/login',
     userData
   );
-  console.log(response.data);
   const accesToken = response.data.data.token;
   if (response.data.status === 0) {
     localStorage.setItem('token', accesToken);

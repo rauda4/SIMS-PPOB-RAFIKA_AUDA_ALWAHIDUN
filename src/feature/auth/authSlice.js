@@ -29,7 +29,6 @@ export const login = createAsyncThunk('auth/login', async (user, thunkAPI) => {
   try {
     return await authService.login(user);
   } catch (error) {
-    console.log(error.response.data.message);
     const message = error.response.data.message;
     return thunkAPI.rejectWithValue(message);
   }
@@ -76,9 +75,6 @@ export const authSlice = createSlice({
         state.message = action.payload;
         state.user = null;
       });
-    //   .addCase(logout.fulfilled, (state) => {
-    //     state.user = null;
-    //   });
   }
 });
 
