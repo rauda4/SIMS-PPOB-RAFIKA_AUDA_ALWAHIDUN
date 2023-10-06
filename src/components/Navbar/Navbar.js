@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Headers from '../Headers/Headers';
 import logo from '../../assets/WebsiteAssets/Logo.png';
 // import { useNavigate } from 'react-router-dom';
 
@@ -48,7 +47,7 @@ export default function Navbar() {
               <li className='flex items-center'>
                 <a
                   className='lg:text-black lg:hover:text-red-500 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs capitalize font-bold'
-                  href='/transaction'>
+                  href='/transaction-history'>
                   Transaction
                 </a>
               </li>
