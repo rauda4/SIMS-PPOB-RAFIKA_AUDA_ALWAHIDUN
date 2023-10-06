@@ -5,9 +5,11 @@ import { getService } from '../../feature/service/ServiceSlice';
 export default function CardsService() {
   const dispatch = useDispatch();
   const service = useSelector((state) => state.service.service);
+
   useEffect(() => {
     dispatch(getService());
   }, [dispatch]);
+
   return (
     <section className='2xl:px-52 lg:px-20 md:px-20 sm:px-24 px-5'>
       <div className='grid 2xl:gap-8 lg:gap-24 md:gap-20 sm:gap-28 gap-10 2xl:grid-cols-7 lg:grid-cols-5 md:grid-cols-3 grid-cols-2 justify-center'>

@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getBanner } from '../../feature/banner/BannerSlice';
+import { getBanner } from '../../feature/service/ServiceSlice';
 
 export default function CardBanner() {
   const dispatch = useDispatch();
-  const banner = useSelector((state) => state.banner.banner);
+  const banner = useSelector((state) => state.service.banner);
 
   useEffect(() => {
     dispatch(getBanner());
@@ -15,7 +15,9 @@ export default function CardBanner() {
       <span className='font-semibold'>Temukan Promo Menarik</span>
       <div className='grid justify-center 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 2xl:gap-24 xl:gap-14 lg:gap-32 md:gap-20 gap-10 mt-10'>
         {banner.map((item) => (
-          <div className='card w-64 bg-base-100 shadow-xl'>
+          <div
+            className='card w-64 bg-base-100 shadow-xl'
+            key={item.banner_name}>
             <figure>
               <img
                 src={item.banner_image}
