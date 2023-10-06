@@ -3,6 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import Navbar from '../../../components/Navbar/Navbar';
 import { getProfile } from '../../../feature/profile/ProfileSlice';
 import ProfilePic from '../../../assets/WebsiteAssets/ProfilePhoto.png';
+import CardsFormProfile from '../../../components/Cards/CardsFormProfile';
+import { MdAlternateEmail, MdOutlineAccountCircle } from 'react-icons/md';
+import ButtonRed from '../../../components/Buttons/ButtonRed';
+import ButtonWhite from '../../../components/Buttons/ButtonWhite';
 
 export default function Profile() {
   const [showProfile, setShowProfile] = useState();
@@ -48,58 +52,31 @@ export default function Profile() {
 
         {/* body field update */}
         <div className='2xl:px-96 lg:px-40 px-20'>
-          <div className='form-control'>
-            <label className='label'>
-              <span className='label-text capitalize font-semibold'>email</span>
-            </label>
-            <input
-              type='text'
-              placeholder='masukkan email anda'
-              className='input input-bordered rounded-md font-semibold'
-              name='email'
-              value={profile.email}
+          <div className='space-y-2'>
+            <CardsFormProfile
+              tittle='Email'
+              icon={<MdAlternateEmail />}
+              name={profile.email}
+            />
+            <CardsFormProfile
+              tittle='First Name'
+              icon={<MdOutlineAccountCircle />}
+              name={profile.first_name}
+            />
+            <CardsFormProfile
+              tittle='Last Name'
+              icon={<MdOutlineAccountCircle />}
+              name={profile.last_name}
             />
           </div>
-          <div className='form-control'>
-            <label className='label'>
-              <span className='label-text capitalize font-semibold'>
-                nama depan
-              </span>
-            </label>
-            <input
-              type='text'
-              placeholder='masukkan email anda'
-              className='input input-bordered rounded-md font-semibold'
-              name='first_name'
-              value={profile.first_name}
-            />
-          </div>
-          <div className='form-control'>
-            <label className='label'>
-              <span className='label-text capitalize font-semibold'>
-                nama belakang
-              </span>
-            </label>
-            <input
-              type='text'
-              className='input input-bordered rounded-md font-semibold'
-              name='last'
-              value={profile.last_name}
-            />
-          </div>
-          <div className='form-control mt-4'>
-            <a
-              href='/edit-profile'
-              className='btn bg-white border border-red-800 hover:border-red-800 hover:bg-red-100 text-red-600 rounded-md capitalize'>
-              Edit
+          <div className='space-y-3 mt-10'>
+            <a href='/edit-profile'>
+              <ButtonWhite title='Edit' />
             </a>
-          </div>
-          <div className='form-control mt-4 '>
-            <button
-              className='btn bg-red-600 hover:bg-red-800 text-white rounded-md capitalize'
-              onClick={handleLogout}>
-              Logout
-            </button>
+            <ButtonRed
+              title='logout'
+              onClick={handleLogout}
+            />
           </div>
         </div>
       </div>
