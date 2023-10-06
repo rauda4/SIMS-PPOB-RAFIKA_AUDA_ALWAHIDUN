@@ -3,6 +3,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import Home from '../pages/landingpage/home/Home';
 import Transaction from '../pages/landingpage/transaction/Transaction';
 import Profile from '../pages/landingpage/profile/Profile';
+import EditProfile from '../pages/landingpage/profile/EditProfile';
 import TopUp from '../pages/landingpage/topup/TopUp';
 
 export default function LandingPageRoutes() {
@@ -24,6 +25,10 @@ export default function LandingPageRoutes() {
         <Route
           path='/profile'
           element={<Profile />}
+        />
+        <Route
+          path='/edit-profile'
+          element={<EditProfile />}
         />
         <Route
           path='*'
