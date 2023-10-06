@@ -31,9 +31,13 @@ const serviceSlice = createSlice({
   name: 'service',
   initialState: { service: [], banner: [] },
   extraReducers: (builder) => {
-    builder.addCase(getService.fulfilled, (state, action) => {
-      state.service = action.payload;
-    });
+    builder
+      .addCase(getService.fulfilled, (state, action) => {
+        state.service = action.payload;
+      })
+      .addCase(getBanner.fulfilled, (state, action) => {
+        state.banner = action.payload;
+      });
   }
 });
 
