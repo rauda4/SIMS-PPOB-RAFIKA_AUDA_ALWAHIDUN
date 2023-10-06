@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getService } from '../../feature/service/ServiceSlice';
 
 export default function CardsService() {
   const dispatch = useDispatch();
+  const [order, setOrder] = useState('');
   const service = useSelector((state) => state.service.service);
+  localStorage.setItem('order', JSON.stringify(order));
 
   useEffect(() => {
     dispatch(getService());
@@ -16,18 +18,28 @@ export default function CardsService() {
         {service.map((item) => (
           <div
             className='card w-44 bg-slate-100 cursor-pointer'
-            key={item.service_code}>
-            <figure>
-              <img
-                src={item.service_icon}
-                alt='Shoes'
-              />
-            </figure>
-            <div className='flex justify-center'>
-              <h2 className='card-title text-sm text-center'>
-                {item.service_name}
-              </h2>
-            </div>
+            key={item.service_code}
+            onClick={() =>
+              setOrder({
+                serviceName: item.service_name,
+                serviceCode: item.service_code,
+                image: item.service_icon,
+                amount: item.service_tariff
+              })
+            }>
+            <a href={`/transaction/${item.service_code}`}>
+              <figure>
+                <img
+                  src={item.service_icon}
+                  alt='Shoes'
+                />
+              </figure>
+              <div className='flex justify-center'>
+                <h2 className='card-title text-sm text-center'>
+                  {item.service_name}
+                </h2>
+              </div>
+            </a>
           </div>
         ))}
       </div>
