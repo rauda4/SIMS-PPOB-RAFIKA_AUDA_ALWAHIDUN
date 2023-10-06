@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import Home from '../pages/landingpage/home/Home';
+import TransactionHistory from '../pages/landingpage/transaction/TransactionHistory';
 import Transaction from '../pages/landingpage/transaction/Transaction';
 import Profile from '../pages/landingpage/profile/Profile';
 import EditProfile from '../pages/landingpage/profile/EditProfile';
@@ -19,7 +20,11 @@ export default function LandingPageRoutes() {
           element={<TopUp />}
         />
         <Route
-          path='/transaction'
+          path='/transaction-history'
+          element={<TransactionHistory />}
+        />
+        <Route
+          path='/transaction/:id'
           element={<Transaction />}
         />
         <Route
