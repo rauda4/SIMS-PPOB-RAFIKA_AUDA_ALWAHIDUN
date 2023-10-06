@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import Headers from '../../../components/Headers/Headers';
 import Navbar from '../../../components/Navbar/Navbar';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { getTopUp } from '../../../feature/transaction/TransactionSlice';
 
 export default function TopUp() {
   const [price, setPrice] = useState();
   const [inputePrice, setInputePrice] = useState('');
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const listPrice = [
     {
       id: '1',
@@ -31,12 +36,14 @@ export default function TopUp() {
       price: 500000
     }
   ];
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = {
-      price: inputePrice || price
+      top_up_amount: inputePrice || price
     };
-    console.log(data);
+    dispatch(getTopUp(data));
+    navigate('/transaction-history');
   };
   return (
     <>
