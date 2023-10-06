@@ -1,12 +1,14 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import authSlice from '../feature/auth/authSlice';
-import BannerSlice from '../feature/banner/BannerSlice';
+import ProfileSlice from '../feature/profile/ProfileSlice';
 import ServiceSlice from '../feature/service/ServiceSlice';
+import TransactionSlice from '../feature/transaction/TransactionSlice';
 
 export const store = configureStore({
   reducer: combineReducers({
     auth: authSlice,
     service: ServiceSlice,
-    banner: BannerSlice
+    transaction: TransactionSlice,
+    profile: ProfileSlice
   })
 });

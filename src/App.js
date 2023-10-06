@@ -1,20 +1,16 @@
-import { Route, Routes } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import AuthRoutes from './routes/AuthRoutes';
 import LandingPageRoutes from './routes/LandingPageRoutes';
 
 function App() {
-  return (
-    <Routes>
-      <Route
-        path='/*'
-        element={<LandingPageRoutes />}
-      />
-      <Route
-        path='/auth/*'
-        element={<AuthRoutes />}
-      />
-    </Routes>
-  );
+  const token = localStorage.getItem('token');
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  useEffect(() => {
+    if (token) {
+      setIsAuthenticated(true);
+    }
+  }, [token]);
+  return <>{isAuthenticated ? <LandingPageRoutes /> : <AuthRoutes />}</>;
 }
 
 export default App;

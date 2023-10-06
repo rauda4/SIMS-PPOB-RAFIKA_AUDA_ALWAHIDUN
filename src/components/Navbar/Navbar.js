@@ -10,9 +10,7 @@ export default function Navbar() {
   return (
     <div>
       <nav
-        className={
-          'absolute z-50 w-full flex items-center justify-between py-3 border-b-2'
-        }>
+        className={'w-full flex items-center justify-between py-3 border-b-2'}>
         <div className='container mx-auto flex flex-wrap items-center justify-between'>
           <div className='w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-end px-10'>
             <a
@@ -36,7 +34,7 @@ export default function Navbar() {
           <div
             className={
               'lg:flex flex-none items-center bg-white lg:bg-transparent lg:shadow-none' +
-              (navbarOpen ? ' block rounded shadow-lg' : ' hidden')
+              (navbarOpen ? ' block rounded shadow-none' : ' hidden')
             }
             id='example-navbar-warning'>
             <ul className='flex flex-col lg:flex-row list-none mr-auto'>
@@ -65,7 +63,6 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
-      <Headers />
     </div>
   );
 }
