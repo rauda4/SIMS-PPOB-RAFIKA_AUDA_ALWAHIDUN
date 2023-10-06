@@ -30,6 +30,7 @@ export default function Login() {
     }
     if (isSuccess) {
       navigate('/');
+      window.location.reload();
     }
     dispatch(reset());
   }, [isError, isSuccess, message, navigate, dispatch]);
