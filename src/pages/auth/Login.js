@@ -105,7 +105,7 @@ export default function Login() {
                   />
                   <div
                     onClick={() => setShowPassword(!showPassword)}
-                    className='cursor-pointer absolute mt-10 md:ml-80 ml-72 px-6 show-password'>
+                    className='cursor-pointer absolute mt-10 md:ml-80 ml-64 px-6 show-password'>
                     {showPassword ? <BsEye /> : <BsEyeSlash />}
                   </div>
                 </div>
