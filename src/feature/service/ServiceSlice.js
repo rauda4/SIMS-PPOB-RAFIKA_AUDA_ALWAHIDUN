@@ -2,29 +2,37 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const getService = createAsyncThunk('getService', async () => {
-  const token = localStorage.getItem('token');
-  const response = await axios.get(
-    'https://take-home-test-api.nutech-integrasi.app/services',
-    {
-      headers: {
-        Authorization: `Bearer ${token}`
+  try {
+    const token = localStorage.getItem('token');
+    const response = await axios.get(
+      'https://take-home-test-api.nutech-integrasi.app/services',
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
       }
-    }
-  );
-  return response.data.data;
+    );
+    return response.data.data;
+  } catch (error) {
+    return error.response.data.message;
+  }
 });
 
 export const getBanner = createAsyncThunk('getBanner', async () => {
-  const token = localStorage.getItem('token');
-  const response = await axios.get(
-    'https://take-home-test-api.nutech-integrasi.app/banner',
-    {
-      headers: {
-        Authorization: `Bearer ${token}`
+  try {
+    const token = localStorage.getItem('token');
+    const response = await axios.get(
+      'https://take-home-test-api.nutech-integrasi.app/banner',
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
       }
-    }
-  );
-  return response.data.data;
+    );
+    return response.data.data;
+  } catch (error) {
+    return error.response.data.message;
+  }
 });
 
 const serviceSlice = createSlice({

@@ -2,53 +2,61 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const getProfile = createAsyncThunk('getProfile', async () => {
-  const token = localStorage.getItem('token');
-  const response = await axios.get(
-    'https://take-home-test-api.nutech-integrasi.app/profile',
-    {
-      headers: {
-        Authorization: `Bearer ${token}`
+  try {
+    const token = localStorage.getItem('token');
+    const response = await axios.get(
+      'https://take-home-test-api.nutech-integrasi.app/profile',
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
       }
-    }
-  );
-  return response.data.data;
+    );
+    return response.data.data;
+  } catch (error) {
+    return error.response.data.message;
+  }
 });
 
 export const updateProfile = createAsyncThunk(
   'updateProfile',
   async ({ first_name, last_name }) => {
-    const token = localStorage.getItem('token');
-    const response = await axios.put(
-      'https://take-home-test-api.nutech-integrasi.app/profile/update',
-      { first_name, last_name },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`
+    try {
+      const token = localStorage.getItem('token');
+      const response = await axios.put(
+        'https://take-home-test-api.nutech-integrasi.app/profile/update',
+        { first_name, last_name },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
         }
-      }
-    );
-    console.log(response);
-    return response.data.data;
+      );
+      return response.data.data;
+    } catch (error) {
+      return error.response.data.message;
+    }
   }
 );
 
-export const updateImage = createAsyncThunk(
-  'updateImage',
-  async ({ profile_image }) => {
+export const updateImage = createAsyncThunk('updateImage', async (file) => {
+  try {
     const token = localStorage.getItem('token');
     const response = await axios.put(
       'https://take-home-test-api.nutech-integrasi.app/profile/image',
-      { profile_image },
+      file,
       {
         headers: {
-          Authorization: `Bearer ${token}`
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'multipart/form-data'
         }
       }
     );
-    console.log(response);
     return response.data.data;
+  } catch (error) {
+    return error.response.data.message;
   }
-);
+});
 
 const profileSlice = createSlice({
   name: 'profile',
