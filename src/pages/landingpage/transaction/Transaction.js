@@ -12,12 +12,12 @@ export default function Transaction() {
   const order = localStorage.getItem('order');
   const orders = JSON.parse(order);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const data = {
       service_code: orders.serviceCode
     };
-    dispatch(paymentOrder(data));
+    await dispatch(paymentOrder(data));
     navigate('/transaction-history');
   };
 
