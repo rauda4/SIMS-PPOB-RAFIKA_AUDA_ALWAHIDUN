@@ -53,7 +53,7 @@ export default function Register() {
       last_name,
       password
     };
-    dispatch(register(userData));
+    await dispatch(register(userData));
   };
 
   if (isLoading) {

@@ -4,7 +4,7 @@ import { BiPencil } from 'react-icons/bi';
 export default function EditImage({ onChange }) {
   return (
     <>
-      <div className='absolute -mt-5 ml-16 border border-red-200 rounded-full'>
+      <div className='absolute -mt-5 ml-16 border border-red-200 rounded-full '>
         <input
           type='file'
           onChange={onChange}
@@ -13,7 +13,7 @@ export default function EditImage({ onChange }) {
           className='hidden'
         />
         <label htmlFor='files'>
-          <BiPencil className='w-6 h-6 p-1' />
+          <BiPencil className='w-6 h-6 p-1 cursor-pointer' />
         </label>
       </div>
     </>

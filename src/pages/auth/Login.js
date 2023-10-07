@@ -48,7 +48,7 @@ export default function Login() {
       email,
       password
     };
-    dispatch(login(userData));
+    await dispatch(login(userData));
   };
 
   if (isLoading) {
