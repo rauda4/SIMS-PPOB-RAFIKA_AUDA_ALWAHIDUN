@@ -58,8 +58,8 @@ export default function Login() {
   return (
     <div className='hero min-h-screen '>
       <div className='hero-content flex-col lg:flex-row-reverse'>
-        <div className='grid grid-cols-2 gap-10 items-center'>
-          <div className='card flex-shrink-0 w-screen max-w-md bg-base-100'>
+        <div className='grid md:grid-cols-2 gap-10 items-center'>
+          <div className='card flex-shrink-0 md:w-screen max-w-md bg-base-100'>
             <div className='card-body my-5'>
               {/* headers */}
               <div>
@@ -105,7 +105,7 @@ export default function Login() {
                   />
                   <div
                     onClick={() => setShowPassword(!showPassword)}
-                    className='cursor-pointer absolute mt-10 ml-80 px-6 show-password'>
+                    className='cursor-pointer absolute mt-10 md:ml-80 ml-72 px-6 show-password'>
                     {showPassword ? <BsEye /> : <BsEyeSlash />}
                   </div>
                 </div>
@@ -129,10 +129,10 @@ export default function Login() {
             <img
               src={ilustrasiLogin}
               alt='logo'
+              className='md:w-full w-0'
             />
           </div>
         </div>
-        {/* body login */}
       </div>
     </div>
   );
