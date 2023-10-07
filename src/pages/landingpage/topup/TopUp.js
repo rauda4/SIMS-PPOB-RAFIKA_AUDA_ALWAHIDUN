@@ -37,12 +37,12 @@ export default function TopUp() {
     }
   ];
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const data = {
       top_up_amount: inputePrice || price
     };
-    dispatch(getTopUp(data));
+    await dispatch(getTopUp(data));
     navigate('/transaction-history');
   };
   return (
