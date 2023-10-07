@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import logo from '../../assets/WebsiteAssets/Logo.png';
+import { PiListBold } from 'react-icons/pi';
+
 // import { useNavigate } from 'react-router-dom';
 
 export default function Navbar() {
@@ -27,7 +29,9 @@ export default function Navbar() {
               className='cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none'
               type='button'
               onClick={() => setNavbarOpen(!navbarOpen)}>
-              <i className='text-black'>=</i>
+              <i className='text-black'>
+                <PiListBold />
+              </i>
             </button>
           </div>
           <div

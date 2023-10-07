@@ -49,7 +49,7 @@ export default function Headers() {
 
           {/* card saldo */}
           <div className='flex items-center'>
-            <div className='card sm:w-full w-96  md:h-32 focus:bg-sky-800 text-white bg-red-600  rounded-md p-4 space-y-3'>
+            <div className='card sm:w-full w-96 md:h-32 focus:bg-sky-800 text-white bg-red-600  rounded-md p-4 2xl:mr-8 space-y-3'>
               <span className='text-sm'>Saldo anda</span>
               <span className='text-2xl'>
                 {showSaldo ? (

@@ -13,7 +13,7 @@ export default function CardBanner() {
   return (
     <section className='2xl:px-52 lg:px-20 md:px-20 sm:px-24 px-5 py-20'>
       <span className='font-semibold'>Temukan Promo Menarik</span>
-      <div className='grid justify-center 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 2xl:gap-24 xl:gap-14 lg:gap-32 md:gap-20 gap-10 mt-10'>
+      <div className='grid justify-center 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 2xl:gap-10 xl:gap-14 lg:gap-32 md:gap-20 gap-10 mt-10'>
         {banner.map((item) => (
           <div
             className='card w-64 bg-base-100 shadow-xl'

@@ -56,7 +56,7 @@ export default function TopUp() {
         <div className='text-3xl capitalize font-bold sm:text-left text-center'>
           Nominal Top Up
         </div>
-        <div className='grid sm:grid-cols-2 gap-10 justify-center mt-10'>
+        <div className='grid sm:grid-cols-2 gap-4 justify-center mt-10'>
           <form onSubmit={handleSubmit}>
             <div className='form-control'>
               <label className='label'></label>
